@@ -1,3 +1,4 @@
+import 'package:first/pages/home/home.dart';
 import 'package:first/pages/route_test/page1/child/tip_route.dart';
 import 'package:first/pages/tapbox/bus/bus.dart';
 import 'package:first/pages/tapbox/parent/parent.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         "/self": (context) => const TapboxA(),
         "/bus": (context) => Bus(),
         "/textStyle": (context) => const TextStr(),
-        "/": (context) =>
+        "/": (context) => Home(),
+        "/test": (context) =>
             const MyHomePage(title: 'Flutter Demo Home Page'), //注册首页路由
       },
     );
@@ -127,6 +129,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text("to TextStyle"),
               onPressed: () {
                 Navigator.pushNamed(context, "/textStyle");
+              },
+            ),
+            TextButton(
+              child: const Text("to Home"),
+              onPressed: () {
+                Navigator.pushNamed(context, "/");
               },
             ),
             TextButton(
