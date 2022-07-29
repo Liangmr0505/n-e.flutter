@@ -2,6 +2,7 @@ import 'package:first/pages/route_test/page1/child/tip_route.dart';
 import 'package:first/pages/tapbox/bus/bus.dart';
 import 'package:first/pages/tapbox/parent/parent.dart';
 import 'package:first/pages/tapbox/self/index.dart';
+import 'package:first/pages/demo/text/text.dart';
 import 'package:flutter/material.dart';
 import './pages/route_test/page1/page1.dart';
 import './pages/route_test/page2/page2.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         "/parent": (context) => ParentWidget(),
         "/self": (context) => const TapboxA(),
         "/bus": (context) => Bus(),
+        "/textStyle": (context) => const TextStr(),
         "/": (context) =>
             const MyHomePage(title: 'Flutter Demo Home Page'), //注册首页路由
       },
@@ -119,6 +121,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text("to Bus"),
               onPressed: () {
                 Navigator.pushNamed(context, "/bus");
+              },
+            ),
+            TextButton(
+              child: const Text("to TextStyle"),
+              onPressed: () {
+                Navigator.pushNamed(context, "/textStyle");
               },
             ),
             TextButton(
