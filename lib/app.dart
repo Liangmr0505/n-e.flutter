@@ -1,4 +1,7 @@
 import 'package:first/pages/route_test/page1/child/tip_route.dart';
+import 'package:first/pages/tapbox/bus/bus.dart';
+import 'package:first/pages/tapbox/parent/parent.dart';
+import 'package:first/pages/tapbox/self/index.dart';
 import 'package:flutter/material.dart';
 import './pages/route_test/page1/page1.dart';
 import './pages/route_test/page2/page2.dart';
@@ -23,6 +26,9 @@ class MyApp extends StatelessWidget {
         "/page1": (context) => const page1(),
         "/page2": (context) => const page2(),
         "/notfound": (context) => const NotFound(),
+        "/parent": (context) => ParentWidget(),
+        "/self": (context) => const TapboxA(),
+        "/bus": (context) => Bus(),
         "/": (context) =>
             const MyHomePage(title: 'Flutter Demo Home Page'), //注册首页路由
       },
@@ -83,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text("opten tooltips"),
             ),
             TextButton(
-              child: const Text("to page1"),
+              child: const Text("to Page1"),
               onPressed: () {
                 // 路由传参
                 Navigator.of(context)
@@ -92,13 +98,31 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             // to page2
             TextButton(
-              child: const Text("to page2"),
+              child: const Text("to Page2"),
               onPressed: () {
                 Navigator.pushNamed(context, "/page2");
               },
             ),
             TextButton(
-              child: const Text("to notfound"),
+              child: const Text("to Parent"),
+              onPressed: () {
+                Navigator.pushNamed(context, "/parent");
+              },
+            ),
+            TextButton(
+              child: const Text("to Self"),
+              onPressed: () {
+                Navigator.pushNamed(context, "/self");
+              },
+            ),
+            TextButton(
+              child: const Text("to Bus"),
+              onPressed: () {
+                Navigator.pushNamed(context, "/bus");
+              },
+            ),
+            TextButton(
+              child: const Text("to Notfound"),
               onPressed: () {
                 Navigator.pushNamed(context, "/notfound");
               },
